@@ -32,7 +32,6 @@ const FormSchema = z.object({
     .string()
     .min(1, { message: "Avatar is required" })
     .url("Invalid image URL"), // Added validation
-  dob: z.string(),
 });
 
 export default function EditProfilePage() {
@@ -49,7 +48,6 @@ export default function EditProfilePage() {
     defaultValues: {
       email: auth?.user?.email,
       phoneNumber: auth?.user?.phoneNumber,
-      dob: auth?.user?.dob,
       avatar: auth?.user?.avatar,
     },
   });
@@ -94,19 +92,6 @@ export default function EditProfilePage() {
                     <FormLabel>Phone Number*</FormLabel>
                     <FormControl>
                       <Input placeholder="+8801XXXXXXXXX" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="dob"
-                render={({ field }) => (
-                  <FormItem className="col-span-2">
-                    <FormLabel>Birthday*</FormLabel>
-                    <FormControl>
-                      <Input placeholder="dd-mm-yyyy" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>

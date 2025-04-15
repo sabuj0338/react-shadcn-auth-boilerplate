@@ -1,4 +1,3 @@
-import { ChartAreaIcon } from "lucide-react";
 import * as React from "react";
 
 import { NavMain } from "@/components/nav-main";
@@ -11,31 +10,13 @@ import {
   SidebarHeader,
   SidebarRail,
 } from "@/components/ui/sidebar";
+import { nav_links } from "@/consts";
 import { useLocation } from "react-router";
-
-// This is sample data.
-const data = {
-  navMain: [
-    {
-      title: "Dashboard",
-      url: "#",
-      icon: ChartAreaIcon,
-      isActive: false,
-      items: [
-        {
-          title: "Overview",
-          url: "/",
-        },
-      ],
-    },
-  ],
-};
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const location = useLocation();
-  // console.log(location.pathname);
 
-  const navMenu = data.navMain.map((item) => {
+  const navMenu = nav_links.navMain.map((item) => {
     const find = item.items.find((i) => i.url === location.pathname);
     if (find) {
       item.isActive = true;
