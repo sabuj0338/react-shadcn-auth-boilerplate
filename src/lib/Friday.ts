@@ -22,7 +22,8 @@ class MyFriday extends Friday {
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   override resetTokens(res: AxiosResponse<any, any>): void {
-    localStorage.set(ACCESS_TOKEN_KEY, res.data.accessToken)
+    localStorage.set(ACCESS_TOKEN_KEY, res.data.data.accessToken)
+    localStorage.set(REFRESH_TOKEN_KEY, res.data.data.accessToken)
   }
 
   override throwError(message: string): void {
